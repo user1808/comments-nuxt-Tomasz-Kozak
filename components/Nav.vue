@@ -35,8 +35,6 @@ const btnText = computed<string>(() => bp.value.lSm ? 'Wspieram projekt' : 'Wspi
 nav {
     overflow: hidden;
     background-color: white;
-    position: fixed;
-    top: 0;
     width: 100%;
     display: flex;
     flex-direction: row-reverse;
@@ -73,7 +71,7 @@ nav {
         white-space: nowrap;
         margin-right: 7%;
         cursor: pointer;
-        font-weight: 500;
+        font-weight: 600;
     }
     .notification {
         font-size: 12px;

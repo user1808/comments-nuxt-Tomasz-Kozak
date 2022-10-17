@@ -1,6 +1,7 @@
 <template>
   <div>
     <Nav />
+    <Content />
   </div>
 </template>
 
@@ -9,5 +10,6 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Lato';
+  background-color: #f5f5f5;
 }
  </style>
