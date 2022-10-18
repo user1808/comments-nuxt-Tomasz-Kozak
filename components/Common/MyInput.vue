@@ -42,43 +42,31 @@ const updateShowLabel = () => {
 </script>
 
 <style lang="scss" scoped>
-@import 'utils/style/_colors.scss';
+@import 'utils/style/_colors';
+@import 'utils/style/_inputMixins';
 
 .label {
-    padding: 1rem 0 0 1.5rem;
-    z-index: 2;
-    font-size: 10px;
-    margin-bottom: -6px;
-    height: 10px;
+    @include inputLabel;
 
     .label-content {
-        background-color: white;
-        border: 1px solid grey;
-        padding: 0 4px;
-        border-radius: 1rem;
+        @include inputInactiveContent;
     }
 
     .label-active {
-        border: 1px solid $light-blue;
-        color: $light-blue;
+        @include inputActiveContent;
     }
 }
 
 .input {
-    padding: 1rem;
-    font-size: 16px;
+    @include inputMixin;
     border-radius: 2rem;
-    z-index: 1;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
-    border: 1px solid gray;
 
     &:focus::-webkit-input-placeholder {
-        color: transparent;
+        @include inputPlaceholderOnFocus;
     }
 
     &:focus {
-        border: 1px solid $light-blue;
-        outline: none;
+        @include inputBorderOnfocus;
     }
 }
 </style>
