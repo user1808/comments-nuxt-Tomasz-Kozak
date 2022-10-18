@@ -1,6 +1,6 @@
 <template>
     <nav>
-        <a class="btn-grad">
+        <a class="button-gradient">
             {{ btnText }}
         </a>
         <ul>
@@ -33,6 +33,7 @@ const btnText = computed<string>(() => bp.value.lSm ? 'Wspieram projekt' : 'Wspi
 
 <style lang="scss" scoped>
 @import 'utils/style/_colors';
+@import 'utils/style/_mixins';
 
 nav {
     overflow: hidden;
@@ -61,18 +62,10 @@ nav {
         
         }
     } 
-    .btn-grad {
-        background-image: linear-gradient(to right, $darker-blue 0%, $light-blue  50%);
-        padding: 1rem 2rem;
-        text-align: center;
-        background-size: 200% auto;
-        color: white;            
-        box-shadow: 0 0 20px $shadow;
-        border-radius: 2rem;
-        display: block;
-        white-space: nowrap;
+    .button-gradient {
+        @include button-gradient;
+        padding: 1rem 2rem;         
         margin-right: 7%;
-        cursor: pointer;
     }
     .notification {
         font-size: 12px;
