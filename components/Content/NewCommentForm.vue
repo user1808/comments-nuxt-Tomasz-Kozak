@@ -1,6 +1,8 @@
 <template>
     <div class="form">
-        <span class="form-title">Dodaj komentarz</span>
+        <span class="form-title">
+            Dodaj komentarz
+        </span>
         <div class="form-content">
             <span class="avatar" v-if="bp.lSm"/>
             <form>
@@ -8,7 +10,6 @@
                 <CommonMyTextarea label="Komentarz" v-model="newComment.message"/>
             </form>
         </div>
-        {{ newComment }}
         <div class="form-submit">
             <a class="btn-grad">
                 Dodaj
@@ -35,7 +36,7 @@ const newComment = ref<Comment>(new Comment());
 }
 .form-title {
     font-size: 18px;
-    padding: 2rem 0;
+    padding: 0.5rem 0;
 }
 .form-content {
     display: flex;

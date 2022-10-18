@@ -1,6 +1,8 @@
 <template>
     <label class="label">
-        {{ label }}
+        <span class="label-content" :class="{'label-active': textareaActive}" v-show="showLabel">
+            {{ label }}
+        </span>
     </label>
     <textarea
         class="textarea" 
@@ -9,6 +11,8 @@
         :placeholder="label"
         :value="modelValue"
         @input="updateValue"
+        @focus="updateShowLabel"
+        @blur="updateShowLabel"
     />
 </template>
 
@@ -28,12 +32,38 @@ const updateValue = (event) => {
     emits('update:modelValue', event.target.value);
 }
 
+const showLabel = ref(false);
+const textareaActive = ref(false);
+
+const updateShowLabel = () => {
+    if (!props.modelValue) {
+        showLabel.value = !showLabel.value;
+    }
+    textareaActive.value = !textareaActive.value;
+}
+
 </script>
 
 <style lang="scss" scoped>
 .label {
-    padding-left: 1.5rem;
-    z-index: 1;
+    padding: 1rem 0 0 1.5rem;
+    z-index: 2;
+    font-size: 10px;
+    margin-bottom: -6px;
+    height: 10px;
+
+
+    .label-content {
+        background-color: white;
+        border: 1px solid grey;
+        padding: 0 4px;
+        border-radius: 1rem;
+    }
+
+    .label-active {
+        border: 1px solid #19b0f6;
+        color: #19b0f6;
+    }
 }
 
 .textarea {
@@ -42,7 +72,7 @@ const updateValue = (event) => {
     font-family: inherit;
     resize: none;
     border-radius: 1rem;
-    z-index: 0;
+    z-index: 1;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
     border: 1px solid gray;
 
@@ -52,6 +82,11 @@ const updateValue = (event) => {
 
     &:focus::placeholder {
         color: transparent;
+    }
+
+    &:focus {
+        border: 1px solid #19b0f6;
+        outline: none;
     }
 }
 </style>
