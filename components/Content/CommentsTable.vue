@@ -39,6 +39,10 @@ const comments: Array<Comment> = [{
 </script>
 
 <style lang="scss" scoped>
+.comments-table {
+    padding: 1rem;
+    width: 100%;
+}
 .comments-content {
     padding: 2rem 0;
 }

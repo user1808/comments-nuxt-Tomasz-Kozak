@@ -23,7 +23,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 2rem 1rem;
+    padding: 1rem;
 }
 .form-title {
     font-size: 18px;
