@@ -71,7 +71,6 @@ nav {
         white-space: nowrap;
         margin-right: 7%;
         cursor: pointer;
-        font-weight: 600;
     }
     .notification {
         font-size: 12px;
