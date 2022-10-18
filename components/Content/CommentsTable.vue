@@ -30,38 +30,39 @@ const props = defineProps<{
 
 <style lang="scss" scoped>
 @import 'utils/style/_colors';
+@import 'utils/style/_mixins';
 
 .comments-table {
     padding: 1rem;
-}
-.comments-content {
-    padding: 2rem 0;
-}
-.comments-title {
-    display: flex;
-}
-.comments-title-text {
-    display: flex;
-    align-items: center;
-    font-size: 18px;
-}
-.comments-title-number {
-    border-radius: 50%;
-    width: 23px;
-    height: 23px;
 
-    border: 2px solid $darker-blue;
-    color: $darker-blue;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    .comments-title {
+        display: flex;
 
-    margin: 0 0.5rem;
-}
-.no-comments-content {
-    padding: 2rem 0;
-    text-align: center;
-    font-size: 24px;
-    color: grey;
+        .comments-title-text {
+            @include flex-align-center;
+            font-size: 18px;
+        }
+        .comments-title-number {
+            @include flex-align-center;
+            border-radius: 50%;
+            width: 23px;
+            height: 23px;
+            border: 2px solid $darker-blue;
+            color: $darker-blue;
+            justify-content: center;
+            margin: 0 0.5rem;
+        }
+    }
+
+    .comments-content {
+        padding: 2rem 0;
+    }
+
+    .no-comments-content {
+        padding: 2rem 0;
+        text-align: center;
+        font-size: 24px;
+        color: grey;
+    }
 }
 </style>

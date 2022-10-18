@@ -98,9 +98,8 @@ const addComment = async () => {
         justify-content: flex-end;
         
         .form-submit-error {
+            @include flex-align-center;
             color: red;
-            display: flex;
-            align-items: center;
             font-weight: 600;
             padding: 0 2rem;
         }
