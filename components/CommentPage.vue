@@ -1,6 +1,7 @@
 <template>
     <div class="content">
-        <ContentNewCommentForm @updateList="fetch"/>
+        <ContentNewCommentForm 
+            @updateList="fetch"/>
         <ContentCommentsTable 
             tableTitle="Komentarze wspierających" 
             :comments="comments" 
