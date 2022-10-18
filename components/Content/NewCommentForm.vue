@@ -4,12 +4,11 @@
         <div class="form-content">
             <span class="avatar" v-if="bp.lSm"/>
             <form>
-                <label class="author-label">Autor</label>
-                <input type="text" class="author-input" placeholder="Autor">
-                <label class="message-label">Komentarz</label>
-                <textarea type="text" rows="5" class="message-input" placeholder="Komentarz"/>
+                <CommonMyInput label="Autor" v-model="newComment.author"/>
+                <CommonMyTextarea label="Komentarz" v-model="newComment.message"/>
             </form>
         </div>
+        {{ newComment }}
         <div class="form-submit">
             <a class="btn-grad">
                 Dodaj
@@ -19,8 +18,16 @@
 </template>
 
 <script setup lang="ts">
+import Comment from "@/models/Comment";
+
 
 const bp = useBreakpoints();
+
+const newComment = ref<Comment>(new Comment());
+
+const test = (value) => {
+    console.log(value);
+}
 
 </script>
 
@@ -73,28 +80,10 @@ form {
     border-radius: 2rem;
     z-index: 0;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
-}
-.author-label {
-    padding-left: 5%;
-    z-index: 1;
+    border: 1px solid gray;
 }
 .author-label::-webkit-input-placeholder {
     font-family: 'Lato';
-}
-.message-input {
-    padding: 1rem;
-    font-size: 16px;
-    resize: none;
-    border-radius: 1rem;
-    z-index: 0;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
-}
-.message-input::-webkit-input-placeholder {
-    font-family: 'Lato';
-}
-.message-label {
-    padding-left: 5%;
-    z-index: 1;
 }
 input:focus::placeholder {
   color: transparent;
