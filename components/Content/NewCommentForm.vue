@@ -11,7 +11,10 @@
             </form>
         </div>
         <div class="form-submit">
-            <a class="btn-grad">
+            <span class="form-submit-error" v-show="error">
+                {{ errorText }}
+            </span>
+            <a class="btn-grad" @click="addComment">
                 Dodaj
             </a>
         </div>
@@ -25,6 +28,22 @@ import Comment from "@/models/Comment";
 const bp = useBreakpoints();
 
 const newComment = ref<Comment>(new Comment());
+const error = ref(false);
+const errorText = ref('');
+
+const addComment = () => {
+    if (!newComment.value.author.trim()) {
+        error.value = true;
+        errorText.value = 'Brak autora!';
+    } else if (!newComment.value.message.trim()) {
+        error.value = true;
+        errorText.value = 'Brak komentarza!';
+    } else {
+        error.value = false;
+        errorText.value = '';
+        console.log('Można dodawac');
+    }
+}
 
 </script>
 
@@ -50,6 +69,15 @@ form {
 .form-submit {
     text-align: right;
     padding: 2rem 0;
+    display: flex;
+    justify-content: end;
+}
+.form-submit-error {
+    color: red;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    padding: 0 2rem;
 }
 .avatar {
   height: 50px;
