@@ -24,7 +24,6 @@
 <script setup lang="ts">
 import Comment from "@/models/Comment";
 
-
 const bp = useBreakpoints();
 
 const newComment = ref<Comment>(new Comment());
@@ -70,7 +69,7 @@ form {
     text-align: right;
     padding: 2rem 0;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
 }
 .form-submit-error {
     color: red;
