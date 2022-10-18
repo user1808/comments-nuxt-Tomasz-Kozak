@@ -53,11 +53,14 @@ const addComment = async () => {
     if (validate()){
         try {
             await CommentsApi.createNewComment(formatCommentBeforeSend(newComment.value));
+            error.value = false;
             newComment.value.message = '';
             newComment.value.author = '';
             emits('updateList');
         } catch(e) {
             console.error(e.message);
+            error.value = true;
+            errorText.value = "Problem z połączeniem... Nie udało się dodać nowego komentarza..."
         }
     }
 }
