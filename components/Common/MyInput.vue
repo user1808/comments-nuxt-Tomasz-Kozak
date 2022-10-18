@@ -30,7 +30,7 @@ const updateValue = (event) => {
 
 <style lang="scss">
 .label {
-    padding-left: 1rem;
+    padding-left: 1.5rem;
     z-index: 1;
 }
 
@@ -41,5 +41,13 @@ const updateValue = (event) => {
     z-index: 0;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
     border: 1px solid gray;
+
+    &:focus::-webkit-input-placeholder {
+        color: transparent;
+    }
+
+    &:focus {
+        border: none;
+    }
 }
 </style>

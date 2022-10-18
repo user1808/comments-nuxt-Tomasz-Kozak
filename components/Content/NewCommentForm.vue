@@ -25,10 +25,6 @@ const bp = useBreakpoints();
 
 const newComment = ref<Comment>(new Comment());
 
-const test = (value) => {
-    console.log(value);
-}
-
 </script>
 
 <style lang="scss" scoped>
@@ -81,14 +77,5 @@ form {
     z-index: 0;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
     border: 1px solid gray;
-}
-.author-label::-webkit-input-placeholder {
-    font-family: 'Lato';
-}
-input:focus::placeholder {
-  color: transparent;
-}
-textarea:focus::placeholder {
-  color: transparent;
 }
 </style>
