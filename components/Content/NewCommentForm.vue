@@ -23,7 +23,11 @@
 
 <script setup lang="ts">
 import Comment from "@/models/Comment";
-import axios from "axios";
+import CommentsApi from '@/services/comments/CommentsApi';
+
+const emits = defineEmits<{
+    (e: 'updateList'),
+}>();
 
 const bp = useBreakpoints();
 
@@ -31,7 +35,7 @@ const newComment = ref<Comment>(new Comment());
 const error = ref(false);
 const errorText = ref('');
 
-const addComment = async () => {
+const validate = () => {
     if (!newComment.value.author.trim()) {
         error.value = true;
         errorText.value = 'Brak autora!';
@@ -41,9 +45,20 @@ const addComment = async () => {
     } else {
         error.value = false;
         errorText.value = '';
-        await axios.get<Array<Comment>>('http://localhost:3000/comments');
-        await axios.post('http://localhost:3000/comments', newComment.value);
-        newComment.value = new Comment();
+    }
+    return !error.value;
+}
+
+const addComment = async () => {
+    if (validate()){
+        try {
+            await CommentsApi.createNewComment(newComment.value);
+            newComment.value.message = '';
+            newComment.value.author = '';
+            emits('updateList');
+        } catch(e) {
+            console.error(e.message);
+        }
     }
 }
 

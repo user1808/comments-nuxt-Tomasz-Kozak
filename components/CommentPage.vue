@@ -1,6 +1,6 @@
 <template>
     <div class="content">
-        <ContentNewCommentForm />
+        <ContentNewCommentForm @updateList="fetch"/>
         <ContentCommentsTable 
             tableTitle="Komentarze wspierających" 
             :comments="comments" 
@@ -9,8 +9,8 @@
 </template>
 
 <script setup lang="ts">
-import axios from 'axios';
 import Comment from '@/models/Comment';
+import CommentsApi from '@/services/comments/CommentsApi';
 
 const comments = ref<Array<Comment>>([]);
 const loading = ref(true);
@@ -22,12 +22,19 @@ const noCommentsInfo = computed(() => {
     }
 })
 
+const fetch = async () => {
+    try {
+        loading.value = true;
+        comments.value = await CommentsApi.fetchAllComments();
+    } catch(e) {
+        console.error(e.message);
+    } finally {
+        loading.value = false;
+    }
+}
+
 onMounted(async () => {
-    const response = await axios.get<Array<Comment>>('http://localhost:3000/comments');
-    loading.value = true;
-    comments.value = response.data.sort(
-        (a: Comment, b: Comment) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
-    loading.value = false;
+    await fetch();
 })
 </script>
 
