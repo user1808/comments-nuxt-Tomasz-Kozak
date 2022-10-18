@@ -1,7 +1,7 @@
 <template>
   <div>
     <Nav />
-    <Content />
+    <CommentPage />
   </div>
 </template>
 

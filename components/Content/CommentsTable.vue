@@ -2,7 +2,7 @@
     <div class="comments-table">
         <div class="comments-title">
             <div class="comments-title-text">
-                Komentarze wspierających
+                {{ tableTitle }}
             </div>
             <div class="comments-title-number">
                 {{ comments.length }}
@@ -12,27 +12,20 @@
             <CommentCard v-for="comment in comments" :key="comment.id" :comment="comment" />
         </div>
         <div class="no-comments-content" v-else>
-            <span v-if="loading">Trwa ładowanie komentarzy</span>
-            <span v-else>Bądź pierwszym komentującym!</span>
+            {{ noCommentsInfo }}
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
 import Comment from '@/models/Comment';
-import axios from 'axios';
 
-const loading = ref(true);
+const props = defineProps<{
+    tableTitle: string,
+    comments: Array<Comment>,
+    noCommentsInfo: string,
+}>()
 
-const comments = ref<Array<Comment>>([])
-
-onMounted(async () => {
-    loading.value = true;
-    const response = await axios.get<Array<Comment>>('http://localhost:3000/comments');
-    loading.value = false;
-    comments.value = response.data.sort(
-        (a: Comment, b: Comment) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
-})
 </script>
 
 <style lang="scss" scoped>
