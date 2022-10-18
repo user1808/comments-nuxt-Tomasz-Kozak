@@ -12,7 +12,8 @@
             <CommentCard v-for="comment in comments" :key="comment.id" :comment="comment" />
         </div>
         <div class="no-comments-content" v-else>
-            Bądź pierwszym komentującym!
+            <span v-if="loading">Trwa ładowanie komentarzy</span>
+            <span v-else>Bądź pierwszym komentującym!</span>
         </div>
     </div>
 </template>
@@ -21,10 +22,14 @@
 import Comment from '@/models/Comment';
 import axios from 'axios';
 
+const loading = ref(true);
+
 const comments = ref<Array<Comment>>([])
 
 onMounted(async () => {
+    loading.value = true;
     const response = await axios.get<Array<Comment>>('http://localhost:3000/comments');
+    loading.value = false;
     comments.value = response.data.sort(
         (a: Comment, b: Comment) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
 })
