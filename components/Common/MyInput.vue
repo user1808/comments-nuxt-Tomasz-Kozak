@@ -42,6 +42,8 @@ const updateShowLabel = () => {
 </script>
 
 <style lang="scss" scoped>
+@import 'utils/style/_colors.scss';
+
 .label {
     padding: 1rem 0 0 1.5rem;
     z-index: 2;
@@ -57,8 +59,8 @@ const updateShowLabel = () => {
     }
 
     .label-active {
-        border: 1px solid #19b0f6;
-        color: #19b0f6;
+        border: 1px solid $light-blue;
+        color: $light-blue;
     }
 }
 
@@ -75,7 +77,7 @@ const updateShowLabel = () => {
     }
 
     &:focus {
-        border: 1px solid #19b0f6;
+        border: 1px solid $light-blue;
         outline: none;
     }
 }

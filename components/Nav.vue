@@ -32,6 +32,8 @@ const btnText = computed<string>(() => bp.value.lSm ? 'Wspieram projekt' : 'Wspi
 </script>
 
 <style lang="scss" scoped>
+@import 'utils/style/_colors';
+
 nav {
     overflow: hidden;
     background-color: white;
@@ -50,22 +52,22 @@ nav {
             font-size: 16px;
             cursor: pointer;
             a {
-                color: #7b7b7b;
+                color: $darker-grey;
                 padding: 1rem 0.5rem;
                 &:hover {
-                    background-color: #e8e8e8;
+                    background-color: $light-grey;
                 }
             }
         
         }
     } 
     .btn-grad {
-        background-image: linear-gradient(to right, #1669c4 0%, #1980f6  50%);
+        background-image: linear-gradient(to right, $darker-blue 0%, $light-blue  50%);
         padding: 1rem 2rem;
         text-align: center;
         background-size: 200% auto;
         color: white;            
-        box-shadow: 0 0 20px #eee;
+        box-shadow: 0 0 20px $shadow;
         border-radius: 2rem;
         display: block;
         white-space: nowrap;
@@ -75,7 +77,7 @@ nav {
     .notification {
         font-size: 12px;
         color: white;
-        background-color: #2196f3;
+        background-color: $notification;
         border-radius: 1rem;
         padding: 4px 8px;
         margin-left: 4px;

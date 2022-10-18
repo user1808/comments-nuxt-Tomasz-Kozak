@@ -29,6 +29,8 @@ const props = defineProps<{
 </script>
 
 <style lang="scss" scoped>
+@import 'utils/style/_colors';
+
 .comments-table {
     padding: 1rem;
 }
@@ -48,8 +50,8 @@ const props = defineProps<{
     width: 23px;
     height: 23px;
 
-    border: 2px solid #1669c4;
-    color: #1669c4;
+    border: 2px solid $darker-blue;
+    color: $darker-blue;
     display: flex;
     justify-content: center;
     align-items: center;

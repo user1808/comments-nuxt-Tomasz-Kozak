@@ -65,6 +65,8 @@ const addComment = async () => {
 </script>
 
 <style lang="scss" scoped>
+@import 'utils/style/_colors';
+
 .form {
     display: flex;
     flex-direction: column;
@@ -99,19 +101,19 @@ form {
 .avatar {
   height: 50px;
   width: 50px;
-  background-color: #e8e8e8;
+  background-color: $light-grey;
   border-radius: 50%;
   display: inline-block;
   margin-right: 12px;
   margin-top: 20px;
 }
 .btn-grad {
-    background-image: linear-gradient(to right, #1669c4 0%, #1980f6  40%);
+    background-image: linear-gradient(to right, $darker-blue 0%, $light-blue  40%);
     padding: 0.75rem 1.75rem;
     text-align: center;
     background-size: 200% auto;
     color: white;            
-    box-shadow: 0 0 20px #eee;
+    box-shadow: 0 0 20px $shadow;
     border-radius: 2rem;
     white-space: nowrap;
     cursor: pointer;

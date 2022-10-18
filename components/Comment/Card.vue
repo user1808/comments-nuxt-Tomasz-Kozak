@@ -30,8 +30,10 @@ const props = defineProps<{
 </script>
 
 <style lang="scss" scoped>
+@import 'utils/style/_colors';
+
 a {
-    color: #1669c4;
+    color: $darker-blue;
     padding: 0 1rem;
     cursor: pointer;
 }
@@ -71,7 +73,7 @@ a {
 .avatar {
   height: 50px;
   width: 50px;
-  background-color: #e8e8e8;
+  background-color: $light-grey;
   border-radius: 50%;
   display: inline-block;
   margin-right: 12px;
