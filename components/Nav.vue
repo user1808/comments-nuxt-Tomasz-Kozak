@@ -43,6 +43,11 @@ nav {
     flex-direction: row-reverse;
     justify-content: space-between;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.253);
+    .button-gradient {
+        @include button-gradient;
+        padding: 1rem 2rem;         
+        margin-right: 7%;
+    }
     ul {
         padding: 1rem 1rem 1rem 7%;
         margin: 0;
@@ -55,25 +60,22 @@ nav {
             a {
                 color: $darker-grey;
                 padding: 1rem 0.5rem;
+
+                .notification {
+                    font-size: 12px;
+                    color: white;
+                    background-color: $notification;
+                    border-radius: 1rem;
+                    padding: 4px 8px;
+                    margin-left: 4px;
+                }
+
                 &:hover {
                     background-color: $light-grey;
                 }
             }
         
         }
-    } 
-    .button-gradient {
-        @include button-gradient;
-        padding: 1rem 2rem;         
-        margin-right: 7%;
-    }
-    .notification {
-        font-size: 12px;
-        color: white;
-        background-color: $notification;
-        border-radius: 1rem;
-        padding: 4px 8px;
-        margin-left: 4px;
     }    
 }
 </style>
