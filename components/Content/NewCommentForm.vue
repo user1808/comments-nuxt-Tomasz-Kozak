@@ -52,7 +52,7 @@ const validate = () => {
 const addComment = async () => {
     if (validate()){
         try {
-            await CommentsApi.createNewComment(newComment.value);
+            await CommentsApi.createNewComment(formatCommentBeforeSend(newComment.value));
             newComment.value.message = '';
             newComment.value.author = '';
             emits('updateList');
@@ -60,6 +60,12 @@ const addComment = async () => {
             console.error(e.message);
         }
     }
+}
+
+const formatCommentBeforeSend = (comment: Comment) => {
+    comment.message = comment.message.trim();
+    comment.author = comment.author.trim();
+    return comment;
 }
 
 </script>
