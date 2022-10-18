@@ -4,7 +4,7 @@
             Dodaj komentarz
         </span>
         <div class="form-content">
-            <span class="avatar" v-if="bp.lSm"/>
+            <CommonMyAvatar class="form-content-avatar" v-if="bp.lSm"/>
             <form>
                 <CommonMyInput label="Autor" v-model="newComment.author"/>
                 <CommonMyTextarea label="Komentarz" v-model="newComment.message"/>
@@ -125,5 +125,8 @@ form {
     z-index: 0;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
     border: 1px solid gray;
+}
+.form-content-avatar {
+    margin-top: 20px;
 }
 </style>

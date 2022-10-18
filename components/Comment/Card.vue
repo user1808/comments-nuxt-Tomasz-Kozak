@@ -1,6 +1,6 @@
 <template>
     <div class="comment-card">
-        <span class="avatar" />
+        <CommonMyAvatar />
         <div class="comment-card-content">
             <div class="comment-card-title">
                 <span class="comment-card-header">{{ comment.author }}</span>
@@ -69,15 +69,6 @@ a {
 }
 .comment-card-actions {
     text-align: end;
-}
-.avatar {
-  height: 50px;
-  width: 50px;
-  background-color: $light-grey;
-  border-radius: 50%;
-  display: inline-block;
-  margin-right: 12px;
-  min-width: 50px;
 }
 .vertical-line {
     border-left: 1px solid grey;
