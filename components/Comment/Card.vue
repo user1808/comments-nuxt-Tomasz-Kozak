@@ -5,7 +5,7 @@
             <div class="comment-card-title">
                 <span class="comment-card-header">{{ comment.author }}</span>
                 <span class="comment-card-subheader">
-                    {{ formatTimeDiff(comment.createdAt) }} temu
+                    {{ formatTimeDiff(new Date(comment.createdAt)) }} temu
                 </span>
             </div>
             <div class="comment-card-text">
