@@ -39,7 +39,6 @@ const updateShowLabel = () => {
     }
     inputActive.value = !inputActive.value;
 }
-
 </script>
 
 <style lang="scss" scoped>

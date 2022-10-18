@@ -4,7 +4,9 @@
         <div class="comment-card-content">
             <div class="comment-card-title">
                 <span class="comment-card-header">{{ comment.author }}</span>
-                <span class="comment-card-subheader">Czas</span>
+                <span class="comment-card-subheader">
+                    {{ formatTimeDiff(comment.createdAt) }} temu
+                </span>
             </div>
             <div class="comment-card-text">
                 {{ comment.message }}
@@ -19,7 +21,7 @@
 
 <script setup lang="ts">
 import Comment from "@/models/Comment";
-
+import { formatTimeDiff } from "@/utils/time"
 
 const props = defineProps<{
     comment: Comment
