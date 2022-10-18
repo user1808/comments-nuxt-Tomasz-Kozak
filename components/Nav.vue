@@ -17,7 +17,7 @@
 </template>         
 
 <script setup lang="ts">
-import { NavItem } from '../utils/types';
+import { NavItem } from '../models/NavItem';
 
 const bp = useBreakpoints()
 
