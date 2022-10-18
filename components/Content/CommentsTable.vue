@@ -22,7 +22,7 @@ import Comment from '@/models/Comment';
 
 const comments: Array<Comment> = [{
     id: 1,
-    message: 'Dobra giera',
+    message: 'Dobra giera Dobra giera Dobra giera',
     author: 'Przykładowy',
     createdAt: new Date(),
 },{
@@ -41,7 +41,6 @@ const comments: Array<Comment> = [{
 <style lang="scss" scoped>
 .comments-table {
     padding: 1rem;
-    width: 100%;
 }
 .comments-content {
     padding: 2rem 0;

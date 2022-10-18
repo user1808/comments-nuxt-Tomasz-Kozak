@@ -51,7 +51,7 @@ a {
     padding: 2px 0;
 }
 .comment-card-content {
-    width: calc(100% - 50px);
+    flex-grow: 1;
 }
 .comment-card-title {
     display: flex;
@@ -73,6 +73,7 @@ a {
   border-radius: 50%;
   display: inline-block;
   margin-right: 12px;
+  min-width: 50px;
 }
 .vertical-line {
     border-left: 1px solid grey;

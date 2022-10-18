@@ -2,7 +2,7 @@
     <div class="form">
         <span class="form-title">Dodaj komentarz</span>
         <div class="form-content">
-            <span class="avatar" />
+            <span class="avatar" v-if="bp.lSm"/>
             <form>
                 <label class="author-label">Autor</label>
                 <input type="text" class="author-input" placeholder="Autor">
@@ -18,9 +18,14 @@
     </div>
 </template>
 
+<script setup lang="ts">
+
+const bp = useBreakpoints();
+
+</script>
+
 <style lang="scss" scoped>
 .form {
-    width: 100%;
     display: flex;
     flex-direction: column;
     padding: 1rem;
@@ -36,7 +41,7 @@
 form {
     display: flex;
     flex-direction: column;
-    width: calc(100% - 62px);
+    flex-grow: 1;
 }
 .form-submit {
     text-align: right;
