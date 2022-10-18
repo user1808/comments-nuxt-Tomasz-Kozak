@@ -19,23 +19,15 @@
 
 <script setup lang="ts">
 import Comment from '@/models/Comment';
+import axios from 'axios';
 
-const comments: Array<Comment> = [{
-    id: 1,
-    message: 'Dobra giera Dobra giera Dobra giera',
-    author: 'Przykładowy',
-    createdAt: new Date('2021-12-17T03:24:00'),
-},{
-    id: 2,
-    message: 'Komentarz',
-    author: 'Wspierający',
-    createdAt: new Date('2022-10-18T14:24:00'),
-},{
-    id: 3,
-    message: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum ipsa, blanditiis earum iusto nemo nam? Voluptatem pariatur deserunt dolor fugiat reiciendis eveniet similique laborum repellat mollitia, esse saepe maiores non',
-    author: 'Przykładowy',
-    createdAt: new Date('2022-10-11T14:24:00'),
-}];
+const comments = ref<Array<Comment>>([])
+
+onMounted(async () => {
+    const response = await axios.get<Array<Comment>>('http://localhost:3000/comments');
+    comments.value = response.data.sort(
+        (a: Comment, b: Comment) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+})
 </script>
 
 <style lang="scss" scoped>
