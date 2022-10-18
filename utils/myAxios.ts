@@ -1,8 +1,8 @@
 import Axios, { AxiosInstance } from "axios";
+import { PORT } from '@/utils/constants';
 
 export class MyAxios {
-    //TODO dodać tu process.env.PORT
-    static baseUrl: string = `http://localhost:3000/`;
+    static baseUrl: string = `http://localhost:${PORT}/`;
 
     public static create(): AxiosInstance {
         const myAxiosInstance: AxiosInstance = Axios.create();
