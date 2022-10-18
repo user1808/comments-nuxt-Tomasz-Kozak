@@ -31,6 +31,7 @@ const props = defineProps<{
 
 <style lang="scss" scoped>
 @import 'utils/style/_colors';
+@import 'utils/style/_mixins';
 
 a {
     color: $darker-blue;
@@ -58,8 +59,7 @@ a {
     flex-grow: 1;
 }
 .comment-card-title {
-    display: flex;
-    flex-direction: column;
+    @include flex-column;
     height: 50px;
     justify-content: center;
 }

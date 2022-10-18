@@ -66,10 +66,10 @@ const addComment = async () => {
 
 <style lang="scss" scoped>
 @import 'utils/style/_colors';
+@import 'utils/style/_mixins';
 
 .form {
-    display: flex;
-    flex-direction: column;
+    @include flex-column;
     padding: 1rem;
 }
 .form-title {
@@ -81,8 +81,7 @@ const addComment = async () => {
     padding-top: 1rem;
 }
 form {
-    display: flex;
-    flex-direction: column;
+    @include flex-column;
     flex-grow: 1;
 }
 .form-submit {
@@ -97,15 +96,6 @@ form {
     align-items: center;
     font-weight: 600;
     padding: 0 2rem;
-}
-.avatar {
-  height: 50px;
-  width: 50px;
-  background-color: $light-grey;
-  border-radius: 50%;
-  display: inline-block;
-  margin-right: 12px;
-  margin-top: 20px;
 }
 .btn-grad {
     background-image: linear-gradient(to right, $darker-blue 0%, $light-blue  40%);

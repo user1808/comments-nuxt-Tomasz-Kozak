@@ -39,10 +39,11 @@ onMounted(async () => {
 </script>
 
 <style lang="scss" scoped>
+@import 'utils/style/_mixins';
+
 .content {
+    @include flex-column;
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     max-width: 800px;
 }
