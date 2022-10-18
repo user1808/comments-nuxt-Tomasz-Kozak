@@ -33,11 +33,6 @@ const props = defineProps<{
 @import 'utils/style/_colors';
 @import 'utils/style/_mixins';
 
-a {
-    color: $darker-blue;
-    padding: 0 1rem;
-    cursor: pointer;
-}
 .comment-card {
     display: flex;
     background: white;
@@ -45,32 +40,44 @@ a {
     border-radius: 1rem;
     padding: 1rem;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
-}
-.comment-card-header {
-    font-size: 14px;
-    padding: 2px 0;
-}
-.comment-card-subheader {
-    font-size: 12px;
-    color: grey;
-    padding: 2px 0;
-}
-.comment-card-content {
-    flex-grow: 1;
-}
-.comment-card-title {
-    @include flex-column;
-    height: 50px;
-    justify-content: center;
-}
-.comment-card-text {
-    padding: 1.5rem 0;
-    font-size: 12px;
-}
-.comment-card-actions {
-    text-align: end;
-}
-.vertical-line {
-    border-left: 1px solid grey;
+
+    .comment-card-content {
+        flex-grow: 1;
+    }
+
+    .comment-card-title {
+        @include flex-column;
+        height: 50px;
+        justify-content: center;
+
+        .comment-card-header {
+            font-size: 14px;
+            padding: 2px 0;
+        }
+        .comment-card-subheader {
+            font-size: 12px;
+            color: grey;
+            padding: 2px 0;
+        }
+    }
+
+    .comment-card-text {
+        padding: 1.5rem 0;
+        font-size: 12px;
+    }
+    
+    .comment-card-actions {
+        text-align: end;
+
+        a {
+            color: $darker-blue;
+            padding: 0 1rem;
+            cursor: pointer;
+        }
+
+        .vertical-line {
+            border-left: 1px solid grey;
+        }
+    }
 }
 </style>
